@@ -59,6 +59,7 @@ public class Menu extends JMenuBar {
     JMenu datei = new JMenu(m.mes.getString("Menu.0"));
     JMenu option = new JMenu(m.mes.getString("Menu.1"));
     JMenu optionen_look = new JMenu(m.mes.getString("Menu.2"));
+    JMenu loadPlugins = new JMenu("Load plug-ins");
     JMenu about = new JMenu(m.mes.getString("Menu.3"));
 
     gener = new JMenuItem(m.mes.getString("Menu.4"));
@@ -115,6 +116,7 @@ public class Menu extends JMenuBar {
     about.add(info);
     this.add(datei);
     this.add(option);
+    this.add(loadPlugins);
     this.add(about);
 
     MenuListner al = new MenuListner(m, this);

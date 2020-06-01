@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/iMage.mosaique.base/iMage.mosaique.base.iml" filepath="$PROJECT_DIR$/iMage.mosaique.base/iMage.mosaique.base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iMage.mosaique.cli/iMage.mosaique.cli.iml" filepath="$PROJECT_DIR$/iMage.mosaique.cli/iMage.mosaique.cli.iml" />
+    </modules>
+  </component>
+</project>

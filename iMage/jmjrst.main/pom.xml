@@ -2,13 +2,16 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>swt1</groupId>
     <artifactId>iMage</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
+
   <groupId>swt1.ub1.a2</groupId>
   <artifactId>2291287</artifactId>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -21,6 +24,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -36,4 +40,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>

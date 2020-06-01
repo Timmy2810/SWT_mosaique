@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="2291287" />
-        <module name="iMage.mosaique.cli" />
         <module name="iMage.mosaique" />
-        <module name="iMage.mosaique.base" />
+        <module name="iMage.mosaique.cli" />
         <module name="jmjrst.main" />
+        <module name="2291287 (1) (swt1.ub2.a5)" />
+        <module name="2291287 (2) (swt1.ub1.a2)" />
+        <module name="iMage.mosaique.base" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

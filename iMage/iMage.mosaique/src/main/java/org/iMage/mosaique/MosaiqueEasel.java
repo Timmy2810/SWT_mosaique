@@ -1,51 +1,42 @@
 package org.iMage.mosaique;
 
+import java.awt.image.BufferedImage;
+
 import org.iMage.mosaique.base.BufferedArtImage;
 import org.iMage.mosaique.base.IMosaiqueArtist;
 import org.iMage.mosaique.base.IMosaiqueEasel;
-
-import java.awt.image.BufferedImage;
 
 /**
  * This class defines an {@link IMosaiqueEasel} which operates on {@link BufferedArtImage
  * BufferedArtImages}.
  *
+ *
  * @author Dominik Fuchss
+ *
  */
 public class MosaiqueEasel implements IMosaiqueEasel<BufferedArtImage> {
 
-    @Override
-    public BufferedImage createMosaique(BufferedImage input,
-                                        IMosaiqueArtist<BufferedArtImage> artist) {
+  @Override
+  public BufferedImage createMosaique(BufferedImage input,
+      IMosaiqueArtist<BufferedArtImage> artist) {
+    int tileWidth = artist.getTileWidth();
+    int tileHeight = artist.getTileHeight();
 
+    BufferedArtImage image = new BufferedArtImage(input);
+    BufferedArtImage result = image.createBlankImage();
 
-        BufferedArtImage bufferedArtImage = new BufferedArtImage(input);
-        BufferedArtImage subImage;
+    for (int x = 0; x < image.getWidth(); x += tileWidth) {
+      for (int y = 0; y < image.getHeight(); y += tileHeight) {
+        int width = x + tileWidth < image.getWidth() ? tileWidth : image.getWidth() - x;
+        int height = y + tileHeight < image.getHeight() ? tileHeight : image.getHeight() - y;
 
-        int tileWidth = artist.getTileWidth();
-        int tileHeight = artist.getTileHeight();
-
-        int tempWidth = 0;
-        int tempHeight = 0;
-
-        int countWidth = input.getWidth() / tileWidth;
-        int countHeight = input.getHeight() / tileHeight;
-
-
-        for (int i = 0; i < countWidth; i++) {
-            for (int j = 0; j < countHeight; j++) {
-                subImage = bufferedArtImage.getSubimage(tempWidth, tempHeight, tileWidth, tileHeight);
-
-                bufferedArtImage.setSubimage(tempWidth, tempHeight, artist.getTileForRegion(subImage));
-
-                tempHeight += tileHeight;
-            }
-            tempWidth += tileWidth;
-            tempHeight = 0;
-        }
-
-
-        return bufferedArtImage.toBufferedImage();
+        BufferedArtImage sub = image.getSubimage(x, y, width, height);
+        BufferedArtImage tile = artist.getTileForRegion(sub);
+        result.setSubimage(x, y, tile);
+      }
     }
+    return result.toBufferedImage();
+
+  }
 
 }

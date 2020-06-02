@@ -15,6 +15,7 @@
  */
 package org.jis.listner;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -22,15 +23,21 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import org.iMage.plugins.PluginForJmjrst;
+import org.iMage.plugins.PluginManagement;
 import org.jis.Main;
 import org.jis.options.Options;
 import org.jis.view.Menu;
 import org.jis.view.dialog.AboutBox;
 import org.jis.view.dialog.GallerieDialog;
+import org.jis.view.dialog.ListPlugins;
 
 /**
  * @author <a href="http://www.jgeppert.com">Johannes Geppert</a>
@@ -50,6 +57,7 @@ public class MenuListner implements ActionListener {
   Options       o;
   Main          m;
   Menu          menu;
+
 
   /**
    * @param m

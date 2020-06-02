@@ -15,7 +15,12 @@
  */
 package org.jis.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JMenu;
@@ -23,6 +28,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.UIManager;
 
+import org.iMage.plugins.PluginForJmjrst;
+import org.iMage.plugins.PluginManagement;
 import org.jis.Main;
 import org.jis.listner.MenuListner;
 
@@ -50,6 +57,7 @@ public class Menu extends JMenuBar {
   public JMenuItem          look_gtk;
   public JMenuItem          update_check;
 
+  public JMenuItem[]        listPlugins;
   /**
    * @param m
    *          a reference to the Main class
@@ -59,8 +67,9 @@ public class Menu extends JMenuBar {
     JMenu datei = new JMenu(m.mes.getString("Menu.0"));
     JMenu option = new JMenu(m.mes.getString("Menu.1"));
     JMenu optionen_look = new JMenu(m.mes.getString("Menu.2"));
-    JMenu loadPlugins = new JMenu("Load plug-ins");
+    JMenu loadPlugins = new JMenu(m.mes.getString("Menu.17"));
     JMenu about = new JMenu(m.mes.getString("Menu.3"));
+
 
     gener = new JMenuItem(m.mes.getString("Menu.4"));
     URL url = ClassLoader.getSystemResource("icons/media-playback-start.png");
@@ -134,6 +143,9 @@ public class Menu extends JMenuBar {
     look_gtk.addActionListener(al);
     update_check.addActionListener(al);
 
+    initPlugins(loadPlugins);
+
+
     UIManager.LookAndFeelInfo uii[] = UIManager.getInstalledLookAndFeels();
     for (int i = 0; i < uii.length; i++)
     {
@@ -152,4 +164,67 @@ public class Menu extends JMenuBar {
     }
   }
 
+  /**
+   * Fügt die Plugins als Untermenü von Load Plug-ins hinzu
+   *
+   * @param menu entspricht dem Load Plug-ins Menü
+   */
+  private void initPlugins(JMenu menu) {
+
+    Iterable<PluginForJmjrst> plugins = PluginManagement.getPlugins();
+    Iterator<PluginForJmjrst> itrPlugin = plugins.iterator();
+    int j = 1;
+    while (itrPlugin.hasNext()) {
+      itrPlugin.next();
+      j++;
+    }
+
+    listPlugins = new JMenuItem[j];
+
+    int i = 0;
+
+    if (!plugins.iterator().hasNext()){
+      listPlugins[i] = new JMenuItem("No plug-ins available!");
+    }
+
+    while (itrPlugin.hasNext()) {
+      PluginForJmjrst plugin = itrPlugin.next();
+      listPlugins[i] = new JMenuItem(plugin.getName());
+      pluginMenu(plugin, listPlugins[i]);
+      menu.add(listPlugins[i]);
+
+      if (itrPlugin.hasNext()) {
+        menu.addSeparator();
+      }
+      i++;
+    }
+  }
+
+  /**
+   * Fügt zu einem Plugin die Untermenüpunkte "Configure" und "Run" hinzu
+   *
+   * @param plugin entspricht dem Plugin
+   * @param menuItem entspricht dem Menüpunkt, zu welchem die Unterpunkte hinzugefügt werden sollen
+   */
+  private void pluginMenu(PluginForJmjrst plugin, JMenuItem menuItem) {
+
+    JMenuItem configure = new JMenuItem("Configure");
+    JMenuItem run = new JMenuItem("Run");
+    menuItem.add(run);
+    run.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        plugin.run();
+      }
+    });
+    if (plugin.isConfigurable()) {
+      menuItem.add(configure);
+      configure.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+          plugin.configure();
+        }
+      });
+    }
+  }
 }

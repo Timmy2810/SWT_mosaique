@@ -1,18 +1,22 @@
 import org.iMage.plugins.PluginForJmjrst;
 import org.jis.Main;
 
+import javax.swing.*;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class JavaCrashCoursePlugin extends PluginForJmjrst {
 
     private String name;
     private int numberOfParaemters;
     private Main m;
+    private boolean configureable;
+    private List javaReleases;
 
     public JavaCrashCoursePlugin() {
-        List javaReleases = List.of(
-            "Java SE 8", "Java SE 9", "Java SE 10", "Java SE 11", "Java SE 12", "Java SE 13", "Java SE 14");
+        javaReleases = List.of("8", "9", "10", "11", "12", "13", "14");
         numberOfParaemters = javaReleases.size();
+        configureable = true;
     }
 
     @Override
@@ -37,11 +41,20 @@ public class JavaCrashCoursePlugin extends PluginForJmjrst {
 
     @Override
     public boolean isConfigurable() {
-        return false;
+        return configureable;
     }
 
     @Override
     public void configure() {
+        JFrame fenster = new JFrame("Java Releases");
+        fenster.setSize(200, 200);
+        fenster.setLocation(100, 100);
+
+        Stream.of(javaReleases).forEach(n -> fenster.add(new JLabel("Java " + n)));
+
+        fenster.setVisible(true);
+
+
 
     }
 

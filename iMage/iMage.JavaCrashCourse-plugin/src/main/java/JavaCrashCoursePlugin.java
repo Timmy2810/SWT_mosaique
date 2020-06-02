@@ -3,6 +3,7 @@ import org.jis.Main;
 
 import javax.swing.*;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Stream;
 
 public class JavaCrashCoursePlugin extends PluginForJmjrst {
@@ -36,7 +37,21 @@ public class JavaCrashCoursePlugin extends PluginForJmjrst {
 
     @Override
     public void run() {
+        Random rn = new Random();
+        int random = rn.nextInt(javaReleases.size()) + 8;
 
+        System.out.println(
+        switch (random) {
+            case 14 -> "Keeping updates";
+            case 13 -> "Running late";
+            case 12 -> "Running late";
+            case 11 -> "Running late";
+            case 10 -> "Running late";
+            case 9 -> "Running late";
+            case 8 -> "Running late";
+            default -> this.getName() + "(" + this.getNumberOfParameters() + ")";
+        }
+        );
     }
 
     @Override
@@ -53,9 +68,6 @@ public class JavaCrashCoursePlugin extends PluginForJmjrst {
         Stream.of(javaReleases).forEach(n -> fenster.add(new JLabel("Java " + n)));
 
         fenster.setVisible(true);
-
-
-
     }
 
 

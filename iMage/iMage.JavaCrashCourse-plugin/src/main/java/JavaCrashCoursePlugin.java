@@ -1,7 +1,8 @@
 import org.iMage.plugins.PluginForJmjrst;
 import org.jis.Main;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
@@ -43,12 +44,7 @@ public class JavaCrashCoursePlugin extends PluginForJmjrst {
         System.out.println(
             switch (random) {
                 case 14 -> "Keeping updates";
-                case 13 -> "Running late";
-                case 12 -> "Running late";
-                case 11 -> "Running late";
-                case 10 -> "Running late";
-                case 9 -> "Running late";
-                case 8 -> "Running late";
+                case 13, 12, 11, 10, 9, 8 -> "Running late";
                 default -> this.getName() + "(" + this.getNumberOfParameters() + ")";
             }
         );

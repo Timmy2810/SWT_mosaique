@@ -7,13 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="iMage.mosaique" />
-        <module name="iMage.bundle" />
+        <module name="iMage.mosaique.base" />
         <module name="iMage.mosaique.cli" />
         <module name="2291287" />
         <module name="jmjrst.main" />
         <module name="2291287 (1) (swt1.ub2.a5)" />
         <module name="2291287 (2) (swt1.ub1.a2)" />
-        <module name="iMage.mosaique.base" />
+        <module name="iMage.bundle" />
         <module name="iMage.JavaCrashCourse-plugin" />
       </profile>
     </annotationProcessing>
@@ -21,5 +21,15 @@
       <module name="iMage.mosaique.base" target="14" />
       <module name="iMage.mosaique.cli" target="1.5" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_STRING" value="--enable-preview" />
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="2291287 (1) (swt1.ub2.a5)" options="" />
+      <module name="2291287 (2) (swt1.ub1.a2)" options="" />
+      <module name="iMage.JavaCrashCourse-plugin" options="" />
+      <module name="iMage.bundle" options="" />
+      <module name="iMage.mosaique" options="" />
+    </option>
   </component>
 </project>

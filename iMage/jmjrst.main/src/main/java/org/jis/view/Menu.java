@@ -58,6 +58,7 @@ public class Menu extends JMenuBar {
   public JMenuItem          update_check;
 
   public JMenuItem[]        listPlugins;
+  public JMenuItem test;
   /**
    * @param m
    *          a reference to the Main class
@@ -123,6 +124,11 @@ public class Menu extends JMenuBar {
     option.addSeparator();
     option.add(update_check);
     about.add(info);
+
+    test = new JMenuItem("test");
+    //loadPlugins.add(test);
+    initPlugins(loadPlugins);
+
     this.add(datei);
     this.add(option);
     this.add(loadPlugins);
@@ -142,8 +148,6 @@ public class Menu extends JMenuBar {
     look_motif.addActionListener(al);
     look_gtk.addActionListener(al);
     update_check.addActionListener(al);
-
-    initPlugins(loadPlugins);
 
 
     UIManager.LookAndFeelInfo uii[] = UIManager.getInstalledLookAndFeels();
@@ -170,6 +174,8 @@ public class Menu extends JMenuBar {
    * @param menu entspricht dem Load Plug-ins Menü
    */
   private void initPlugins(JMenu menu) {
+
+    menu.add(test);
 
     Iterable<PluginForJmjrst> plugins = PluginManagement.getPlugins();
     Iterator<PluginForJmjrst> itrPlugin = plugins.iterator();
@@ -211,20 +217,10 @@ public class Menu extends JMenuBar {
     JMenuItem configure = new JMenuItem("Configure");
     JMenuItem run = new JMenuItem("Run");
     menuItem.add(run);
-    run.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        plugin.run();
-      }
-    });
+    run.addActionListener(e -> plugin.run());
     if (plugin.isConfigurable()) {
       menuItem.add(configure);
-      configure.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-          plugin.configure();
-        }
-      });
+      configure.addActionListener(e -> plugin.configure());
     }
   }
 }

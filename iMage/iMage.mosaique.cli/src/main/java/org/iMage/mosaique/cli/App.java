@@ -1,6 +1,11 @@
 package org.iMage.mosaique.cli;
 
-import org.apache.commons.cli.*;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.ParseException;
 import org.iMage.mosaique.MosaiqueEasel;
 import org.iMage.mosaique.base.BufferedArtImage;
 import org.iMage.mosaique.rectangle.RectangleArtist;

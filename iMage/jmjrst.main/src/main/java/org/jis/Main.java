@@ -18,9 +18,14 @@ package org.jis;
 import org.jis.generator.Generator;
 import org.jis.listner.ExitListner;
 import org.jis.options.Options;
+import org.jis.view.FileTree;
+import org.jis.view.List;
 import org.jis.view.List;
 import org.jis.view.Menu;
-import org.jis.view.*;
+import org.jis.view.Menu;
+import org.jis.view.Preview;
+import org.jis.view.Status;
+import org.jis.view.Toolbar;
 import org.jis.view.dialog.OptionsEdit;
 
 import javax.swing.ImageIcon;

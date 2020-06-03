@@ -41,16 +41,16 @@ public class JavaCrashCoursePlugin extends PluginForJmjrst {
         int random = rn.nextInt(javaReleases.size()) + 8;
 
         System.out.println(
-        switch (random) {
-            case 14 -> "Keeping updates";
-            case 13 -> "Running late";
-            case 12 -> "Running late";
-            case 11 -> "Running late";
-            case 10 -> "Running late";
-            case 9 -> "Running late";
-            case 8 -> "Running late";
-            default -> this.getName() + "(" + this.getNumberOfParameters() + ")";
-        }
+            switch (random) {
+                case 14 -> "Keeping updates";
+                case 13 -> "Running late";
+                case 12 -> "Running late";
+                case 11 -> "Running late";
+                case 10 -> "Running late";
+                case 9 -> "Running late";
+                case 8 -> "Running late";
+                default -> this.getName() + "(" + this.getNumberOfParameters() + ")";
+            }
         );
     }
 

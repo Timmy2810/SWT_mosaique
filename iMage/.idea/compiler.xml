@@ -6,13 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="2291287" />
-        <module name="iMage.mosaique.base" />
         <module name="iMage.mosaique" />
+        <module name="iMage.bundle" />
         <module name="iMage.mosaique.cli" />
+        <module name="2291287" />
         <module name="jmjrst.main" />
-        <module name="2291287 (2) (swt1.ub1.a2)" />
         <module name="2291287 (1) (swt1.ub2.a5)" />
+        <module name="2291287 (2) (swt1.ub1.a2)" />
+        <module name="iMage.mosaique.base" />
         <module name="iMage.JavaCrashCourse-plugin" />
       </profile>
     </annotationProcessing>

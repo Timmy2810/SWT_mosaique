@@ -1,12 +1,13 @@
 import org.iMage.plugins.PluginForJmjrst;
 import org.jis.Main;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.*;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Stream;
 
+import org.kohsuke.MetaInfServices;
+
+@MetaInfServices
 public class JavaCrashCoursePlugin extends PluginForJmjrst {
 
     private String name;
@@ -19,6 +20,7 @@ public class JavaCrashCoursePlugin extends PluginForJmjrst {
         javaReleases = List.of("8", "9", "10", "11", "12", "13", "14");
         numberOfParaemters = javaReleases.size();
         configureable = true;
+        name = "JavaCrashCourse";
     }
 
     @Override
@@ -34,6 +36,7 @@ public class JavaCrashCoursePlugin extends PluginForJmjrst {
     @Override
     public void init(Main main) {
         this.m = main;
+        System.out.println("Found " + this.getNumberOfParameters() + " Java versions since Java 8");
     }
 
     @Override
@@ -57,13 +60,10 @@ public class JavaCrashCoursePlugin extends PluginForJmjrst {
 
     @Override
     public void configure() {
-        JFrame fenster = new JFrame("Java Releases");
-        fenster.setSize(200, 200);
-        fenster.setLocation(100, 100);
+        StringBuilder builder = new StringBuilder();
+        javaReleases.stream().forEach(n -> builder.append("Java " + n + "\n"));
 
-        Stream.of(javaReleases).forEach(n -> fenster.add(new JLabel("Java " + n)));
-
-        fenster.setVisible(true);
+        JOptionPane.showMessageDialog(null, builder.toString());
     }
 
 

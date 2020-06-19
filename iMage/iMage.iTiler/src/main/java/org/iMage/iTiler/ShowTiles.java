@@ -13,15 +13,8 @@ public class ShowTiles extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        GridBagLayout gbl = new GridBagLayout();
-        setLayout(new FlowLayout(2));
-
-        GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.BOTH;
-        c.insets = new Insets(2, 2, 2, 2);
-
-        JScrollBar scrollBar = new JScrollBar(Adjustable.VERTICAL, 0, 100, 0, 100);
-        add(scrollBar);
+        JPanel images = new JPanel();
+        images.setLayout(new GridLayout(0, 7, 2, 2));
 
         File dir = new File(tilesPath);
         String[] dirList = dir.list();
@@ -33,17 +26,10 @@ public class ShowTiles extends JFrame {
             newImageIcon.setImage(newImageIcon.getImage().
                 getScaledInstance(70, 70, Image.SCALE_SMOOTH));
             JLabel img = new JLabel(newImageIcon);
-            add(img);
+            images.add(img);
         }
 
-        /*
-        for (int i = 0; i < 7; i++) {
-            for (int j = 0; j < dirList.length / 7; j++) {
-                String filename =
-            }
-        }
-
-         */
-
+        JScrollPane scrollPane = new JScrollPane(images);
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
     }
 }

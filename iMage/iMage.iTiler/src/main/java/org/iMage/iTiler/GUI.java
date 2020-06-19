@@ -34,6 +34,7 @@ public class GUI extends JFrame implements ActionListener {
     private String widthTile;
     private String heightTile;
     private BufferedImage inputImage;
+    private JComboBox auswahl;
 
     public GUI() {
         super("iTiler");
@@ -143,8 +144,13 @@ public class GUI extends JFrame implements ActionListener {
         showTiles = new JButton("Show Tiles");
         showTiles.addActionListener(this);
         options.add(showTiles);
+
         JLabel artist = new JLabel("Artist");
         options.add(artist);
+        String comboBox[] = {"Rectange", "Triangle"};
+        auswahl = new JComboBox(comboBox);
+        options.add(auswahl);
+
         run = new JButton("Run");
         run.addActionListener(this);
         options.add(run);
@@ -201,7 +207,8 @@ public class GUI extends JFrame implements ActionListener {
                     inChannel.close();
                 if (outChannel != null)
                     outChannel.close();
-            } catch (IOException e) {}
+            } catch (IOException e) {
+            }
         }
     }
 
@@ -240,6 +247,9 @@ public class GUI extends JFrame implements ActionListener {
             + outputPath + " -w " + widthTile + " -h " + heightTile;
 
         String[] test = args.split(" ");
+        if (auswahl.getSelectedIndex() == 1) { //Entspicht Triangle
+            //Aufruf von Triangle
+        }
         App.main(test);
 
         ImageIcon newImageIcon = new ImageIcon(outputPath);

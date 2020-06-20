@@ -1,12 +1,23 @@
 package org.iMage.iTiler;
 
-import java.awt.*;
-import java.io.File;
-import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 public class ShowTiles extends JFrame {
 
-    public ShowTiles(String tilesPath) {
+    /**
+     * Erstellt ein neues Fenster in welchem die Kachelbilder angezeigt werden
+     * @param tiles entspricht der Liste aus Kachelbildern
+     */
+    public ShowTiles(ArrayList<BufferedImage> tiles) {
         super("Thumbnails");
         setSize(530, 530);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -16,13 +27,14 @@ public class ShowTiles extends JFrame {
         JPanel images = new JPanel();
         images.setLayout(new GridLayout(0, 7, 2, 2));
 
-        File dir = new File(tilesPath);
-        String[] dirList = dir.list();
-        if (dirList == null) {
+
+        if (tiles == null) {
+            JScrollPane scrollPane = new JScrollPane();
+            getContentPane().add(scrollPane, BorderLayout.CENTER);
             return;
         }
-        for (int i = 0; i < dirList.length; i++) {
-            ImageIcon newImageIcon = new ImageIcon(tilesPath + "\\" + dirList[i]);
+        for (BufferedImage tile : tiles) {
+            ImageIcon newImageIcon = new ImageIcon(tile);
             newImageIcon.setImage(newImageIcon.getImage().
                 getScaledInstance(70, 70, Image.SCALE_SMOOTH));
             JLabel img = new JLabel(newImageIcon);

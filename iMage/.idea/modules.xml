@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/iMage.mosaique.base/iMage.mosaique.base.iml" filepath="$PROJECT_DIR$/iMage.mosaique.base/iMage.mosaique.base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/iMage.mosaique.cli/iMage.mosaique.cli.iml" filepath="$PROJECT_DIR$/iMage.mosaique.cli/iMage.mosaique.cli.iml" />
     </modules>
   </component>
 </project>

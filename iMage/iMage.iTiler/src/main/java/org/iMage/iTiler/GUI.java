@@ -104,7 +104,7 @@ public class GUI extends JFrame implements ActionListener {
         //Erstellen des dritten Grids mit Einstellungen zu Mosaique
         c.gridx = 0;
         c.gridy = 3;
-        JPanel options = new JPanel(new FlowLayout(FlowLayout.LEADING));
+        JPanel options = new JPanel(new FlowLayout(3));
         JLabel size = new JLabel("Tile Size");
         options.add(size);
 
@@ -315,11 +315,11 @@ public class GUI extends JFrame implements ActionListener {
         int width = image.getIconWidth();
         int height = image.getIconHeight();
         if (width > height) {
-            double scaleFactor = (double) width / height;
+            double scaleFactor = (double) height / width;
             int newHeight = (int) Math.ceil((double) toWidth * scaleFactor);
             image.setImage(image.getImage().getScaledInstance(toWidth, newHeight, Image.SCALE_SMOOTH));
         } else {
-            double scaleFactor = (double) height / width;
+            double scaleFactor = (double) width / height;
             int newWidth = (int) Math.ceil((double) toHeight * scaleFactor);
             image.setImage(image.getImage().getScaledInstance(newWidth, toHeight, Image.SCALE_SMOOTH));
         }

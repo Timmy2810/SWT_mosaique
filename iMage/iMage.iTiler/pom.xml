@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>swt1.ub4.a1</groupId>
-    <artifactId>2291287</artifactId>
+    <artifactId>iMage.iTiler</artifactId>
 
     <dependencies>
         <dependency>
@@ -30,21 +30,22 @@
     </dependencies>
 
     <build>
-        <plugins><plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <configuration>
-                <archive>
-                    <manifest>
-                        <addClasspath>true</addClasspath>
-                        <classpathPrefix>lib/</classpathPrefix>
-                        <classpathLayoutType>repository</classpathLayoutType>
-                        <useUniqueVersions>false</useUniqueVersions>
-                        <mainClass>GUI</mainClass>
-                    </manifest>
-                </archive>
-            </configuration>
-        </plugin>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <classpathLayoutType>repository</classpathLayoutType>
+                            <useUniqueVersions>false</useUniqueVersions>
+                            <mainClass>org.iMage.iTiler.GUI</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -2,6 +2,7 @@ package org.iMage.mosaique;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.Iterator;
 
 public abstract class AbstractCalculator {
 
@@ -19,30 +20,25 @@ public abstract class AbstractCalculator {
         long a = 0;
         int ctr = 0;
 
+        Iterator<Integer> iterator = getRegionIterator(region);
+        while (iterator.hasNext()) {
+            int col = iterator.next();
 
-
-        for (int x = 0; x < region.getWidth(); x++) {
-            for (int y = getStart(region, x); y < region.getHeight(); y++) {
-                int col = region.getRGB(x, y);
-
-                Color c = new Color(col, true);
-                r += c.getRed();
-                g += c.getGreen();
-                b += c.getBlue();
-                a += c.getAlpha();
-                ctr++;
-            }
-
+            Color c = new Color(col, true);
+            r += c.getRed();
+            g += c.getGreen();
+            b += c.getBlue();
+            a += c.getAlpha();
+            ctr++;
         }
-
         return new Color((int) (r / ctr), (int) (g / ctr), (int) (b / ctr), (int) (a / ctr)).getRGB();
     }
 
     /**
-     * Gibt den Startpunkt der for-Schleife an
-     * @param region wird benötigt um den Startpunkt zu errechnen
-     * @param countWidth wird benötigt um den Startpunkt zu errechnen
-     * @return gibt den Startpunkt zurück
+     * Gibt einen Iterator, welcher die RGB-Werte jedes Pixels des region Bildes beinhaltet zurück
+     *
+     * @param region entspricht dem region Bild
+     * @return gibt den Iterator zurück
      */
-    protected abstract int getStart(BufferedImage region, int countWidth);
+    protected abstract Iterator getRegionIterator(BufferedImage region);
 }

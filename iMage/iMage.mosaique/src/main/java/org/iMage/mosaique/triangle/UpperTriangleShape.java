@@ -61,6 +61,6 @@ public class UpperTriangleShape extends AbstractShape {
 
   @Override
   protected int calcAverage() {
-    return TriangleCalculator.averageUpperColor(this.image);
+    return TriangleCalculator.getInstance().averageUpperColor(this.image);
   }
 }

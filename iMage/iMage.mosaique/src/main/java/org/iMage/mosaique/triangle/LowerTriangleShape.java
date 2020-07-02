@@ -60,7 +60,7 @@ public class LowerTriangleShape extends AbstractShape {
 
   @Override
   protected int calcAverage() {
-    return TriangleCalculator.getInstance().averageLowerColor(this.image);
+    return LowerTriangleCalculator.getInstance().averageColor(this.image);
   }
 
 }

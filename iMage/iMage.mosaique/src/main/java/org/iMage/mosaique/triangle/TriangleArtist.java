@@ -60,8 +60,8 @@ public class TriangleArtist extends AbstractArtist implements IMosaiqueArtist<Bu
 
   @Override
   public void drawTileForRegion(BufferedImage region, BufferedArtImage target) {
-    int averageUpper = TriangleCalculator.getInstance().averageUpperColor(region);
-    int averageLower = TriangleCalculator.getInstance().averageLowerColor(region);
+    int averageUpper = UpperTriangleCalculator.getInstance().averageColor(region);
+    int averageLower = LowerTriangleCalculator.getInstance().averageColor(region);
 
     var upperImage = findNearest(averageUpper, upper);
     var lowerImage = findNearest(averageLower, lower);

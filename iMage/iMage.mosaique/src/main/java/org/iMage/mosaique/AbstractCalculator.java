@@ -19,6 +19,8 @@ public abstract class AbstractCalculator {
         long a = 0;
         int ctr = 0;
 
+
+
         for (int x = 0; x < region.getWidth(); x++) {
             for (int y = getStart(region, x); y < region.getHeight(); y++) {
                 int col = region.getRGB(x, y);

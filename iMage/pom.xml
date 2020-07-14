@@ -10,6 +10,7 @@
         <module>iMage.JavaCrashCourse-plugin</module>
         <module>iMage.bundle</module>
         <module>iMage.iTiler</module>
+        <module>iMage.mosaique.parallel</module>
     </modules>
 
     <dependencies>

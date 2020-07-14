@@ -2,19 +2,14 @@
 <project version="4">
   <component name="RemoteRepositoriesConfiguration">
     <remote-repository>
-      <option name="id" value="swt1" />
-      <option name="name" value="swt1" />
-      <option name="url" value="http://bob.ipd.kit.edu/nexus/repository/maven-public-all/" />
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="ipdNexus" />
       <option name="name" value="ipdNexus" />
       <option name="url" value="http://bob.ipd.kit.edu/nexus/repository/maven-public-all/" />
-    </remote-repository>
-    <remote-repository>
-      <option name="id" value="central" />
-      <option name="name" value="Central Repository" />
-      <option name="url" value="https://repo.maven.apache.org/maven2" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="central" />
@@ -25,6 +20,11 @@
       <option name="id" value="jboss.community" />
       <option name="name" value="JBoss Community repository" />
       <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="swt1" />
+      <option name="name" value="swt1" />
+      <option name="url" value="http://bob.ipd.kit.edu/nexus/repository/maven-public-all/" />
     </remote-repository>
   </component>
 </project>

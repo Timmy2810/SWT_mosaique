@@ -1,4 +1,4 @@
-package iMage.mosaique.parallel;
+package org.iMage.mosaique.parallel;
 
 import java.awt.image.BufferedImage;
 import java.util.concurrent.BrokenBarrierException;

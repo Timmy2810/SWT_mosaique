@@ -1,4 +1,4 @@
-package iMage.mosaique.parallel;
+package org.iMage.mosaique.parallel;
 
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -11,7 +11,6 @@ import org.iMage.mosaique.base.BufferedArtImage;
 import org.iMage.mosaique.base.IMosaiqueArtist;
 import org.iMage.mosaique.base.IMosaiqueShape;
 import org.iMage.mosaique.rectangle.RectangleCalculator;
-import org.iMage.mosaique.rectangle.RectangleShape;
 
 public class ParallelRectangleArtist extends AbstractArtist implements IMosaiqueArtist<BufferedArtImage>, Runnable {
 
@@ -23,6 +22,7 @@ public class ParallelRectangleArtist extends AbstractArtist implements IMosaique
     private List<BufferedImage> images = null;
 
     private static CyclicBarrier barrier = null;
+
 
     public ParallelRectangleArtist(List<BufferedImage> images, int tileWidth, int tileHeight, int numThreads) {
         super(tileWidth, tileHeight);

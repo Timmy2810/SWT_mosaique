@@ -31,6 +31,10 @@ public abstract class AbstractShape implements IMosaiqueShape<BufferedArtImage> 
     this.average = this.calcAverage();
   }
 
+  protected AbstractShape(BufferedImage image, int w, int h) {
+    this.image = ImageUtils.scaleAndCrop(Objects.requireNonNull(image), w, h);
+    this.average = this.calcAverage();
+  }
   /**
    * Calculate the average color of {@link #image}.
    *

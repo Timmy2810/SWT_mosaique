@@ -6,17 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="iMage.mosaique" />
-        <module name="2291287 (1) (swt1.ub2.a5)" />
-        <module name="iMage.mosaique.base" />
-        <module name="iMage.mosaique.cli" />
         <module name="2291287" />
+        <module name="iMage.mosaique.base" />
+        <module name="iMage.mosaique" />
+        <module name="iMage.mosaique.cli" />
+        <module name="iMage.bundle" />
         <module name="iMage.Bundle" />
         <module name="jmjrst.main" />
         <module name="iMage.mosaique.parallel" />
         <module name="2291287 (2) (swt1.ub1.a2)" />
         <module name="jmjrst" />
-        <module name="iMage.bundle" />
+        <module name="2291287 (1) (swt1.ub2.a5)" />
         <module name="iMage.JavaCrashCourse-plugin" />
         <module name="iMage.iTiler" />
       </profile>
